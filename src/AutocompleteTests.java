@@ -19,11 +19,16 @@ public class AutocompleteTests {
         search.insert("see");
         search.insert("hollow");
         search.insert("how");
-        List<String> e = search.complete("h");
-
-        for(int i = 0; i < e.size(); i++) {
-            assertEquals(e,e); //placeholder
-        }
+        //goes through the search for the actual result
+        List<String> a = search.complete("h");
+        //create the expected list
+        List<String> e = new ArrayList<>();
+        e.add("hello");
+        e.add("high");
+        e.add("hollow");
+        e.add("how");
+        //compare the two lists
+        assertEquals(e,a);
     }
 
     @Test
@@ -36,11 +41,15 @@ public class AutocompleteTests {
         search.insert("see");
         search.insert("hollow");
         search.insert("how");
-        List<String> e = search.complete("se");
-
-        for(int i = 0; i < e.size(); i++) {
-            assertEquals(e,e); //placeholder
-        }
+        //goes through the search for actual
+        List<String> a = search.complete("se");
+        //create expected list
+        List<String> e = new ArrayList<>();
+        e.add("seattle");
+        e.add("seatac");
+        e.add("see");
+        //compare the two lists
+        assertEquals(e,a);
     }
 
     @Test
@@ -53,11 +62,14 @@ public class AutocompleteTests {
         search.insert("see");
         search.insert("hollow");
         search.insert("how");
-        List<String> e = search.complete("sea");
-
-        for(int i = 0; i < e.size(); i++) {
-            assertEquals(e,e); //placeholder
-        }
+        //goes through the search for actual
+        List<String> a = search.complete("sea");
+        //create expected list
+        List<String> e = new ArrayList<>();
+        e.add("seattle");
+        e.add("seatac");
+        //compare the two lists
+        assertEquals(e,a);
     }
 
     @Test
@@ -70,11 +82,14 @@ public class AutocompleteTests {
         search.insert("see");
         search.insert("hollow");
         search.insert("how");
-        List<String> e = search.complete("ho");
-
-        for(int i = 0; i < e.size(); i++) {
-            assertEquals(e,e); //placeholder
-        }
+        //goes through the search for actual
+        List<String> a = search.complete("ho");
+        //create expected list
+        List<String> e = new ArrayList<>();
+        e.add("hollow");
+        e.add("how");
+        //compare the two lists
+        assertEquals(e,a);
     }
 
     @Test
@@ -87,15 +102,12 @@ public class AutocompleteTests {
         search.insert("see");
         search.insert("hollow");
         search.insert("how");
-        List<String> e = search.complete("xyz");
-
-        List<String> a = new ArrayList<>();
-
-        for(int i = 0; i < e.size(); i++) {
-            assertEquals(a,e); //placeholder
-        }
+        //search for actual results
+        List<String> a = search.complete("xyz");
+        //expected should be an empty list
+        List<String> e = new ArrayList<>();
+        //compare the lists
+        assertEquals(e,a);
     }
-
-
 
 }
