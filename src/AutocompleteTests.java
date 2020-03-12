@@ -7,16 +7,20 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class AutocompleteTests {
-    private List<String> words() {
-        return new ArrayList<String>(
-                Arrays.asList(
-                        "hello",
-                        "high",
-                        "seattle",
-                        "seatac",
-                        "see",
-                        "hollow",
-                        "how"));
+    public static void main(String[] args) {
+        Autocomplete.AutocompleteTrie search = new Autocomplete.AutocompleteTrie();
+        search.insert("hello");
+        search.insert("high");
+        search.insert("seattle");
+        search.insert("seatac");
+        search.insert("see");
+        search.insert("hollow");
+        search.insert("how");
+        List<String> a = search.complete("h");
+        for(int i = 0; i < a.size(); i++) {
+            System.out.println(a.get(i));
+        }
+
     }
 
     @Test
